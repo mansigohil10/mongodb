@@ -1,0 +1,56 @@
+<a href="/view_detalis">VIEW_DETALIS</a><br><br>
+
+
+<form method="post" action="/addstudentdetalis" enctype="multipart/form-data">
+    <Table border="1">
+        <tr>
+            <td>Enter Your Name:</td>
+            <td><input type="text" name="name"></td>
+        </tr>
+        <tr>
+            <td>Enter Your Age:</td>
+           <td> <input type="text" name="age"></td>
+        </tr>
+        <tr>
+            <td>Ener Your Gender</td>
+            <td>
+                <input type="radio" name="gender" value="male">Male
+                <input type="radio" name="gender" value="Female">Female
+            </td>
+        </tr>
+        <tr>
+            <td>Ener Your Hobby</td>
+            <td>
+                <input type="checkbox" name="hobby" value="music">Music
+                <input type="checkbox" name="hobby" value="reading">Reading
+                <input type="checkbox" name="hobby" value="coding">Coding  
+            </td>
+        </tr>
+        <tr>
+            <td>Select City:</td>
+            <% var cityData=["surat","ahemdabad","rajkot","vadodra","annad"] %>
+             <td>
+                 <select name="city">
+                     <option value="">--Select City--</option>
+                     <% cityData.map((v,i)=> { %>
+                        <option value="<%= v %>"><%= v %></option>
+                     <% }) %>   
+                 </select>
+             </td>
+         </tr>
+         <tr>
+            <td>Message:</td>
+            <td>
+                <textarea name="message"></textarea>
+            </td>
+         </tr>
+         <tr>
+            <td>Upload Image:</td>
+            <td><input type="file" name="adminImage"></td>
+         </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="submit" name="submit"></td>
+        </tr>
+    </Table>
+</form>

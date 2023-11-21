@@ -1,0 +1,50 @@
+<form method="post"  action="/editstudentdetalis">
+    <input type="hidden" value="<%= Oldst.id %>" name="EditId">
+    <Table border="1">
+        <tr>
+            <td>Enter Your Name:</td>
+            <td><input type="text" name="name"  value="<%= Oldst.name %>"></td>
+        </tr>
+        <tr>
+            <td>Enter Your Age:</td>
+           <td> <input type="text" name="age"  value="<%= Oldst.age %>"></td>
+        </tr>
+        <tr>
+            <td>Ener Your Gender</td>
+            <td>
+                <input type="radio" name="gender" value="male" <% if(Oldst.gender == 'male'){ %> <%= 'checked' %> <% } %>>Male
+                <input type="radio" name="gender" value="Female" <% if(Oldst.gender == 'Female'){ %> <%= 'checked' %> <% } %>>Female
+            </td>
+        </tr>
+        <tr>
+            <td>Ener Your Hobby</td>
+            <td>
+                <input type="checkbox" name="hobby" value="music"  <% if(Oldst.hobby.includes('music')){ %><%= 'checked' %><% } %>>Music
+                <input type="checkbox" name="hobby" value="reading" <% if(Oldst.hobby.includes('reading')){ %><%= 'checked' %><% } %>>Reading
+                <input type="checkbox" name="hobby" value="coding" <% if(Oldst.hobby.includes('coding')){ %><%= 'checked' %><% } %>>Coding  
+            </td>
+        </tr>
+        <<tr>
+            <td>Select City:</td>
+            <% var cityData=["surat","ahemdabad","rajkot","vadodra","annad"] %>
+             <td>
+                 <select name="city">
+                     <option value="">--Select City--</option>
+                     <% cityData.map((v,i)=> { %>
+                        <option value="<%= v %>" <% if(Oldst.city== v){ %> <%= 'selected' %> <% } %>> <%= v %></option>
+                     <% }) %>   
+                 </select>
+             </td>
+         </tr>
+         <tr>
+            <td>Message:</td>
+            <td>
+                <textarea name="message"><%= Oldst.message %></textarea>
+            </td>
+         </tr>                            
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Editdata" name="submit"></td>
+        </tr>
+    </Table>
+</form>
